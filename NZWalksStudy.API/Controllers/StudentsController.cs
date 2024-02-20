@@ -12,7 +12,7 @@ namespace NZWalksStudy.API.Controllers
         {
             string[] students = new string[]
             {
-                "Nii", "Okai","Tettey", "Antie","Samuel","Sidney"
+                "Nii", "Okai","Tettey", "Antie","Samuel","Sidney","Okine"
             };
             return Ok(students);
         }
