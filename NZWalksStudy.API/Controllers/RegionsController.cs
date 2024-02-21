@@ -26,7 +26,16 @@ namespace NZWalksStudy.API.Controllers
 
 
             var regionsDto = new List<RegionDto>();
-            foreach 
+            foreach (var region in regions)
+            {
+                regionsDto.Add(new RegionDto()
+                {
+                    Id = region.Id,
+                    Code = region.Code,
+                    Name = region.Name,
+                    RegionImageUrl = region.RegionImageUrl
+                });
+            }
 
 
 
@@ -40,6 +49,8 @@ namespace NZWalksStudy.API.Controllers
         [HttpGet]
         [Route("{id:Guid}")]
         public IActionResult GetById([FromRoute]Guid id) 
+
+
         {
 
             // var region = zWalksDbContext.Regions.Find(id); you can use this code i commented out. It works the same way as the firstOrDefault();
@@ -52,9 +63,25 @@ namespace NZWalksStudy.API.Controllers
             {
                 return NotFound();
             }
-            return Ok(region);
+
+            var regionDto = new RegionDto
+            {
+                Id = region.Id,
+                Code = region.Code,
+                Name = region.Name,
+                RegionImageUrl = region.RegionImageUrl
+            };
+
+            return Ok(regionDto);
         }
-        
+
+        [HttpPost]
+        public IActionResult Create([FromBody] AddRegionRequestDto addRegionRequestDto)
+        {
+
+        }
+
+
 
     }
 }
