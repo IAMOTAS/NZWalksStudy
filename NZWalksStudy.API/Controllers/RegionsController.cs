@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NZWalksStudy.API.Data;
 using NZWalksStudy.API.Models.Domain;
+using NZWalksStudy.API.Models.DTO;
 
 namespace NZWalksStudy.API.Controllers
 {
@@ -20,6 +21,16 @@ namespace NZWalksStudy.API.Controllers
         public IActionResult GetAll()
         {
             var regions = zWalksDbContext.Regions.ToList();
+
+
+
+
+            var regionsDto = new List<RegionDto>();
+            foreach 
+
+
+
+
 
             return Ok(regions);
         }
